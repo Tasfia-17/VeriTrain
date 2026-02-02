@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veritrain"
+version = "0.1.0"
+description = "Formal verification for AI training processes"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.9,<3.12"
+dependencies = [
+    "torch",
+    "jax",
+    "anthropic",
+    "openai",
+    "pydantic",
+    "jsonschema",
+    "click",
+    "typer",
+    "rich",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "mypy",
+    "isort",
+    "pre-commit",
+]
+
+[project.scripts]
+veritrain = "veritrain.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/veritrain"
+Repository = "https://github.com/yourusername/veritrain"
+Issues = "https://github.com/yourusername/veritrain/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["veritrain*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=veritrain --cov-report=html --cov-report=term-missing"

@@ -1,0 +1,30 @@
+(*
+  Example: EU AI Act compute threshold proof
+  
+  Given:
+  - Trace shows 8.64e19 total FLOPs
+  - Threshold is 1e25 FLOPs
+  
+  Prove: Training complies with Article 53
+*)
+
+theorem article_53_compliance_example:
+  assumes valid: "valid_trace t"
+  assumes total: "total_compute (compute t) = 8.64e19"
+  shows "complies_with_article_53 t"
+proof -
+  (* Define the threshold *)
+  have threshold_def: "eu_systemic_risk_threshold = 1e25"
+    unfolding eu_systemic_risk_threshold_def by simp
+  
+  (* Show actual compute is below threshold *)
+  have "8.64e19 ≤ 1e25" by simp
+  
+  then have below: "below_threshold (total_compute (compute t)) eu_systemic_risk_threshold"
+    unfolding below_threshold_def using total threshold_def by simp
+  
+  (* Conclude compliance *)
+  show ?thesis
+    unfolding complies_with_article_53_def
+    using valid below by simp
+qed

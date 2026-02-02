@@ -1,0 +1,36 @@
+(*
+  Example: ASL-3 safety evaluation proof
+  
+  Given:
+  - CBRN eval passed at checkpoint 1000
+  - Cyber eval passed at checkpoint 1000
+  - AutonomousReplication eval passed at checkpoint 1000
+  
+  Prove: All required evals passed
+*)
+
+theorem asl3_evals_passed_example:
+  assumes valid: "valid_trace t"
+  assumes cbrn: "eval_passed_at_checkpoint (evals t) 1000 CBRN"
+  assumes cyber: "eval_passed_at_checkpoint (evals t) 1000 Cyber"
+  assumes auto_rep: "eval_passed_at_checkpoint (evals t) 1000 AutonomousReplication"
+  shows "all_evals_passed t 1000"
+proof -
+  (* Required evals are defined *)
+  have req: "required_evals = [CBRN, Cyber, AutonomousReplication]"
+    unfolding required_evals_def by simp
+  
+  (* Show each required eval passed *)
+  have "∀eval_kind ∈ set required_evals.
+          eval_passed_at_checkpoint (evals t) 1000 eval_kind"
+  proof (rule ballI)
+    fix eval_kind
+    assume "eval_kind ∈ set required_evals"
+    then show "eval_passed_at_checkpoint (evals t) 1000 eval_kind"
+      using req cbrn cyber auto_rep by auto
+  qed
+  
+  (* Conclude all evals passed *)
+  then show ?thesis
+    unfolding all_evals_passed_def by simp
+qed

@@ -1,0 +1,1 @@
+"""Specification definitions and schemas."""
