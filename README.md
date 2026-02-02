@@ -54,7 +54,7 @@ proof = veritrain.prove(training_trace, eu_ai_act_spec)
 </tr>
 </table>
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Install VeriTrain
@@ -67,7 +67,7 @@ cd examples/01_simple_compute_limit
 
 **Output:** Formal proof that training stayed below 10²⁰ FLOPs + compliance certificate
 
-## 🎬 See It In Action
+##  See It In Action
 
 ```bash
 # Complete workflow in 30 seconds
@@ -208,7 +208,7 @@ If you discover vulnerabilities in VeriTrain:
 
 We follow coordinated disclosure for governance-relevant systems.
 
-## 📋 Supported Regulations
+##  Supported Regulations
 
 | Regulation | Threshold | Status |
 |------------|-----------|--------|
@@ -230,7 +230,7 @@ make install
 
 **Requirements:** Python 3.9-3.11, PyTorch/JAX (optional: Isabelle/HOL for real validation)
 
-## 📚 Examples (All Run in <60s)
+##  Examples (All Run in <60s)
 
 <details open>
 <summary><h3>🎯 Example 1: Simple Compute Limit</h3></summary>
@@ -322,7 +322,7 @@ cd examples/05_adversarial_scenarios && ./run.sh
 
 **Run all examples:** `make examples`
 
-## 🔧 Usage
+##  Usage
 
 ### 1. Instrument Training Code
 
@@ -377,7 +377,7 @@ veritrain verify proof.thy
 veritrain export proof.thy --output certificate.pdf
 ```
 
-## 🏗 Architecture
+##  Architecture
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
@@ -397,7 +397,7 @@ veritrain export proof.thy --output certificate.pdf
 
 **Key Insight:** LLM generates proofs, Isabelle validates them. You can't fake math.
 
-## 🧪 Development
+##  Development
 
 ```bash
 # Run tests
@@ -413,15 +413,15 @@ make examples
 make benchmark
 ```
 
-## 📊 Performance & Benchmarks
+##  Performance & Benchmarks
 
 ### Proof Generation Speed
 
 **Key findings:**
-- ⚡ **Sub-second synthesis** for typical training runs (<1K steps)
-- 📈 **Linear scaling** up to 10K steps
-- 💰 **<$0.10 per proof** (Claude Sonnet 4 pricing)
-- 🔋 **<1% training overhead** (instrumentation is lightweight)
+-  **Sub-second synthesis** for typical training runs (<1K steps)
+-  **Linear scaling** up to 10K steps
+-  **<$0.10 per proof** (Claude Sonnet 4 pricing)
+-  **<1% training overhead** (instrumentation is lightweight)
 
 <details>
 <summary><b>📈 Detailed Benchmark Data</b></summary>
@@ -450,7 +450,7 @@ make benchmark
 
 **VeriTrain is 1000x cheaper and deployable today.**
 
-## 🛣️ Path to Production
+##  Path to Production
 
 VeriTrain is **research preview** (hackathon build). Here's the path to real-world deployment:
 
@@ -479,20 +479,9 @@ VeriTrain is **research preview** (hackathon build). Here's the path to real-wor
 - [ ] Open-source governance foundation
 - [ ] Integration with major ML frameworks (HuggingFace, etc.)
 
-**Want to help?** We're looking for:
-- Formal methods experts (Isabelle/Coq/Lean)
-- ML engineers (framework instrumentation)
-- Policy researchers (new regulation formalizations)
-- Security researchers (adversarial testing)
 
-**Fast-track opportunities:**
-- Technical governance research
-- Fellowship programs
-- Academic collaborations
 
-[📧 Get involved](mailto:contact@veritrain.ai)
-
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create feature branch: `git checkout -b feature/amazing-feature`
@@ -500,22 +489,10 @@ VeriTrain is **research preview** (hackathon build). Here's the path to real-wor
 4. Run: `make test lint`
 5. Submit pull request
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) file.
 
-## 🔗 Links
 
-- **Paper:** [VeriTrain: Formal Verification for AI Governance](https://arxiv.org/abs/2024.veritrain)
-- **Documentation:** [docs.veritrain.ai](https://docs.veritrain.ai)
-- **Examples:** [github.com/veritrain/examples](https://github.com/veritrain/examples)
-
-## 🆘 Support
-
-- **Issues:** [GitHub Issues](https://github.com/veritrain/veritrain/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/veritrain/veritrain/discussions)
-- **Email:** support@veritrain.ai
-
----
 
 **Built with ❤️ for AI safety and governance**
